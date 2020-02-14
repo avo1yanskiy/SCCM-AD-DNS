@@ -37,5 +37,5 @@ if($state -lt 2){
 }
 
 Remove-Item C:\temp\ -Recurse -Force -ErrorAction SilentlyContinue
-Write-Host "===== Установка завершена! Нажмите ENTER для выхода =====" -ForegroundColor Green
+Write-Host "===== Установка завершена! Нажмите ENTER для выхода =====" -ForegroundColor Yellow
 Read-Host
