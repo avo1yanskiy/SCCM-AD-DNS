@@ -1,10 +1,10 @@
 
-
+#Добавление ИП, имени, домен контроллер#
 
 $placeNumber= Read-Host "Введите номер прощадки"
 $statePath = "C:\temp\State.txt"
 
-#  create state file
+#Содаем директорию temp и записываем в нее параметр#
 if (!(Test-Path $statePath)){
 	if (!(Test-Path C:\temp\)) { New-Item C:\temp\ -ItemType Directory | Out-Null }
 	New-Item $statePath -ItemType File | Out-Null
@@ -27,4 +27,11 @@ if($state -lt 1){
 
      
     1 | Out-File -FilePath $statePath
+}
+if($state -lt 2){
+    Write-Host "Переименование компьютера"
+    Rename-Computer -ComputerName locahost -NewName "dc" -Restart:$false
+
+
+    2 | Out-File -FilePath $statePath
 }
