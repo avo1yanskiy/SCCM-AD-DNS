@@ -29,9 +29,13 @@ if($state -lt 1){
     1 | Out-File -FilePath $statePath
 }
 if($state -lt 2){
-    Write-Host "Переименование компьютера"
+    Write-Host "Переименование компьютера" -ForegroundColor Yellow
     Rename-Computer -ComputerName locahost -NewName "dc" -Restart:$false
 
 
     2 | Out-File -FilePath $statePath
 }
+
+Remove-Item C:\temp\ -Recurse -Force -ErrorAction SilentlyContinue
+Write-Host "===== Установка завершена! Нажмите ENTER для выхода =====" -ForegroundColor Green
+Read-Host
