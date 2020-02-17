@@ -20,3 +20,8 @@ New-ADGroup -Name "Application" -SamAccountName "Application" -GroupScope Global
 
 $pass = ConvertTo-SecureString -String "Qwerty123!" -AsPlainText -Force
 New-ADUser -Name "Admin" -UserPrincipalName "admin" -SamAccountName "admin" -GivenName "Admin" -Surname "IT" -DisplayName "Admin IT" -AccountPassword $pass -CannotChangePassword $false -Enabled $true -Path "OU=AdminUsers, OU=Moscow, dc=m24, dc=etc"
+
+
+# add group users #
+
+Add-ADGroupMember "Администраторы домена" admin
