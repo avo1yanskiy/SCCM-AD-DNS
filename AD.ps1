@@ -14,7 +14,7 @@ $state = 0 + $state
 if($state -lt 1){
     Write-Host "Установка нужных компонентов для домена" -ForegroundColor Green
     
-    install-windowsfeature AD-Domain-Services
+    install-windowsfeature AD-Domain-Services -IncludeAllSubFeature
     
     1 | Out-File -FilePath $statePath
 }
