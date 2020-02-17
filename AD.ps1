@@ -1,3 +1,5 @@
+#Содаем директорию temp и записываем в нее параметр#
+
 $statePath = "C:\temp\State.txt"
 
 #Содаем директорию temp и записываем в нее параметр#
@@ -36,6 +38,8 @@ if($state -lt 2){
     -Force:$true
     2 | Out-File -FilePath $statePath
 }
+
+
 
 Remove-Item C:\temp\ -Recurse -Force -ErrorAction SilentlyContinue
 Write-Host "===== Установка завершена! Нажмите ENTER для выхода =====" -ForegroundColor Green
