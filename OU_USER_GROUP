@@ -7,3 +7,12 @@ New-ADOrganizationalUnit -Name "AdminUsers" -Path "OU=Moscow, dc=m24,dc=etc"
 New-ADOrganizationalUnit -Name "ServiceUsers" -Path "OU=Moscow, dc=m24,dc=etc"
 New-ADOrganizationalUnit -Name "Group" -Path "OU=Moscow, dc=m24,dc=etc"
 
+
+
+#Group Create#
+
+New-ADGroup -Name "Admins" -SamAccountName "Admins" -GroupScope Global -GroupCategory Security -Description "Admins_Group" -Path "OU=Group, OU=Moscow, dc=m24,dc=etc"
+New-ADGroup -Name "SQL" -SamAccountName "SQL" -GroupScope Global -GroupCategory Security -Description "Admins_SQl" -Path "OU=Group, OU=Moscow, dc=m24,dc=etc"
+New-ADGroup -Name "Hyper-v" -SamAccountName "Hyper-v" -GroupScope Global -GroupCategory Security -Description "Admins_Hyper-v" -Path "OU=Group, OU=Moscow, dc=m24,dc=etc"
+New-ADGroup -Name "Application" -SamAccountName "Application" -GroupScope Global -GroupCategory Security -Description "Admins_Application" -Path "OU=Group, OU=Moscow, dc=m24,dc=etc"
+
