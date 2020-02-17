@@ -30,8 +30,7 @@ if($state -lt 1){
 }
 if($state -lt 2){
     Write-Host "Переименование компьютера" -ForegroundColor Yellow
-    Rename-Computer -ComputerName locahost -NewName "dc" -Restart:$false
-
+	Rename-Computer -NewName dc -Restart:$false
 
     2 | Out-File -FilePath $statePath
 }
