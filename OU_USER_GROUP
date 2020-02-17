@@ -16,3 +16,7 @@ New-ADGroup -Name "SQL" -SamAccountName "SQL" -GroupScope Global -GroupCategory 
 New-ADGroup -Name "Hyper-v" -SamAccountName "Hyper-v" -GroupScope Global -GroupCategory Security -Description "Admins_Hyper-v" -Path "OU=Group, OU=Moscow, dc=m24,dc=etc"
 New-ADGroup -Name "Application" -SamAccountName "Application" -GroupScope Global -GroupCategory Security -Description "Admins_Application" -Path "OU=Group, OU=Moscow, dc=m24,dc=etc"
 
+# User Add & SecPass #
+
+$pass = ConvertTo-SecureString -String "Qwerty123!" -AsPlainText -Force
+New-ADUser -Name "Admin" -UserPrincipalName "admin" -SamAccountName "admin" -GivenName "Admin" -Surname "IT" -DisplayName "Admin IT" -AccountPassword $pass -CannotChangePassword $false -Enabled $true -Path "OU=AdminUsers, OU=Moscow, dc=m24, dc=etc"
