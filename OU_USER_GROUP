@@ -1,0 +1,9 @@
+# OU Create #
+New-ADOrganizationalUnit -Name "Moscow" -Path "dc=m24,dc=etc"
+New-ADOrganizationalUnit -Name "Server" -Path "OU=Moscow, dc=m24,dc=etc"
+New-ADOrganizationalUnit -Name "Hyper-v" -Path "OU=Moscow, dc=m24,dc=etc"
+New-ADOrganizationalUnit -Name "Application" -Path "OU=Moscow, dc=m24,dc=etc"
+New-ADOrganizationalUnit -Name "AdminUsers" -Path "OU=Moscow, dc=m24,dc=etc"
+New-ADOrganizationalUnit -Name "ServiceUsers" -Path "OU=Moscow, dc=m24,dc=etc"
+New-ADOrganizationalUnit -Name "Group" -Path "OU=Moscow, dc=m24,dc=etc"
+
