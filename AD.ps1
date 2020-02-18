@@ -1,7 +1,11 @@
+
+<#
+Создание домен контроллера & добавление компонентов
+#>
+
 #Содаем директорию temp и записываем в нее параметр#
 
-$pass = ConvertTo-SecureString -String "Qwerty123!" -AsPlainText -Force
-$statePath = "C:\temp\State.txt"
+$statePath = "C:\temp\Ad.txt"
 
 #Содаем директорию temp и записываем в нее параметр#
 if (!(Test-Path $statePath)){
@@ -15,12 +19,20 @@ $state = 0 + $state
 if($state -lt 1){
     Write-Host "Установка нужных компонентов для домена" -ForegroundColor Green
     
-    install-windowsfeature AD-Domain-Services, RSAT-Role-ToolsRSAT-ADRMS, RSAT-ADDS-Tools, RSAT-AD-AdminCenter
+    install-windowsfeature RSAT-Role-ToolsRSAT-ADRMS, RSAT-ADDS-Tools, RSAT-AD-AdminCenter
     
     1 | Out-File -FilePath $statePath
 }
 
 if($state -lt 2){
+    Write-Host "Установка службы домен контролера" -ForegroundColor Green
+    
+    install-windowsfeature AD-Domain-Services
+    
+    2 | Out-File -FilePath $statePath
+}
+
+if($state -lt 3){
         sleep 4
 
     Write-Host "Установка домен контролера" -ForegroundColor Green
@@ -37,11 +49,8 @@ if($state -lt 2){
     -NoRebootOnCompletion:$false `
     -SysvolPath "C:\Windows\SYSVOL" `
     -Force:$true
-    2 | Out-File -FilePath $statePath
+    3 | Out-File -FilePath $statePath
 }
-if($state -lt 3){
-        sleep 3
-        Write-Host "Создаем Организационный юнит" -ForegroundColor Green
 
 Remove-Item C:\temp\ -Recurse -Force -ErrorAction SilentlyContinue
 Write-Host "===== Установка завершена! Нажмите ENTER для выхода =====" -ForegroundColor Green
