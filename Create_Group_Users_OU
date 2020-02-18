@@ -1,3 +1,17 @@
+#Содаем директорию temp и записываем в нее параметр#
+
+$statePath = "C:\temp\Group.txt"
+$pass = ConvertTo-SecureString -String "Qwerty123!" -AsPlainText -Force
+
+#Содаем директорию temp и записываем в нее параметр#
+if (!(Test-Path $statePath)){
+	if (!(Test-Path C:\temp\)) { New-Item C:\temp\ -ItemType Directory | Out-Null }
+	New-Item $statePath -ItemType File | Out-Null
+}
+
+$state = Get-Content $statePath
+$state = 0 + $state
+
 if($state -lt 3){
         sleep 3
         Write-Host "Создаем Организационный юнит" -ForegroundColor Green
