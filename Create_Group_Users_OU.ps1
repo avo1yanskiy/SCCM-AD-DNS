@@ -43,7 +43,7 @@ if($state -lt 4){
     
     4 | Out-File -FilePath $statePath
 }
-if($state - lt 5){
+if($state -lt 5){
         sleep 3
         Write-Host "Создаем пользователя Admin" -ForegroundColor Green
 
