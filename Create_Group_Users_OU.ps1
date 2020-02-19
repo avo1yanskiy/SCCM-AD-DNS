@@ -15,7 +15,7 @@ $state = 0 + $state
 if($state -lt 1){
     Write-Host "Установка нужных компонентов для домена" -ForegroundColor Green
     
-    install-Windowsfeature RSAT-Role-Tools -IncludeAllSubFeature
+    install-Windowsfeature RSAT-Role-Tools, RSAT-AD-Tools, RSAT-AD-PowerShell, RSAT-ADLDS, RSAT-ADDS, RSAT-ADDS-Tools, RSAT-AD-AdminCenter
     
     1 | Out-File -FilePath $statePath
 }
